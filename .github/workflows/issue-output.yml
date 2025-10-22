@@ -1,0 +1,19 @@
+name: Issue Output Info
+
+on:
+  issues: 
+    types: [opened]
+    # types: [opened, edited, reopened,closed, labeled, unlabeled, assigned, unassigned]
+
+jobs:
+  issue-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Issue Detailsechp
+        run: |
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
+          echo "Issue Number: ${{ github.event.issue.number }}"
+          echo "Issue URL: ${{ github.event.issue.html_url }}"
+          echo "Issue Created At: ${{ github.event.issue.created_at }}"
+          echo "Issue Updated At: ${{ github.event.issue.updated_at }}"
